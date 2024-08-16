@@ -96,7 +96,7 @@ class LandroidCard extends LitElement {
         .filter((entity) => entity.device_id === deviceId)
         .map((entity) => entity.entity_id);
 
-      // Получение объекта сущностей из this.hass.states для указанных entity_id
+      // Getting entity object from this.hass.states for the specified entity_id
       const entities = entitiesForDevice.reduce((acc, entityId) => {
         acc[entityId] = this.hass.states[entityId];
         return acc;
@@ -467,7 +467,7 @@ class LandroidCard extends LitElement {
 
     const entityAttributes = { ...entity.attributes };
 
-    // Выносим некоторые атрибуты на верхний уровень
+    // We move some attributes to the top level
     return {
       status:
         entityAttributes.status ||
@@ -1106,10 +1106,16 @@ class LandroidCard extends LitElement {
           ${this.renderButton(consts.ACTION_DOCK, { label: true })}
         `;
 
+/*      case consts.STATE_PAUSED:
+        return html`
+          ${this.renderButton(consts.ACTION_MOWING, { label: true })}
+          ${this.renderButton(consts.ACTION_EDGECUT, { label: true, entity: this.getEntityObject(consts.BUTTON_EDGECUT_SUFFIX) })} 
+          ${this.renderButton(consts.ACTION_DOCK, { label: true })}
+        `;
+*/
       case consts.STATE_PAUSED:
         return html`
           ${this.renderButton(consts.ACTION_MOWING, { label: true })}
-          ${this.renderButton(consts.ACTION_EDGECUT, { label: true, entity: this.getEntityObject(consts.BUTTON_EDGECUT_SUFFIX) })}
           ${this.renderButton(consts.ACTION_DOCK, { label: true })}
         `;
 
@@ -1123,13 +1129,23 @@ class LandroidCard extends LitElement {
       case consts.STATE_DOCKED:
       case consts.STATE_OFFLINE:
       case consts.STATE_RAINDELAY:
-      default: {
+
+/*      default: {
         return html`
           ${this.renderButton(consts.ACTION_MOWING)}
           ${this.renderButton(consts.ACTION_EDGECUT, { entity: this.getEntityObject(consts.BUTTON_EDGECUT_SUFFIX) })}
           ${state === 'idle' ? this.renderButton(consts.ACTION_DOCK) : ''}
         `;
       }
+*/
+
+      default: {
+        return html`
+          ${this.renderButton(consts.ACTION_MOWING)}
+          ${state === 'idle' ? this.renderButton(consts.ACTION_DOCK) : ''}
+        `;
+      }
+
     }
   }
 
