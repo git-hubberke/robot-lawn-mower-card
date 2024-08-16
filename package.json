@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Barma-lej/landroid-card.git"
+    "url": "git+https://github.com/git-hubberke/landroid-card.git"
   },
   "keywords": [
     "home-assistant",
@@ -29,9 +29,9 @@
   "author": "Barma-lej",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Barma-lej/landroid-card/issues"
+    "url": "https://github.com/git-hubberke/landroid-card/issues"
   },
-  "homepage": "https://github.com/Barma-lej/landroid-card#readme",
+  "homepage": "https://github.com/git-hubberke/landroid-card#readme",
   "dependencies": {
     "core-js": "^3.36.1",
     "custom-card-helpers": "^1.9.0",
