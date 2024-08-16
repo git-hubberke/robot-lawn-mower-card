@@ -1234,7 +1234,7 @@ class LandroidCard extends LitElement {
 
     const { state } = this.getAttributes();
 
-    return html`
+/*    return html`
       <ha-card>
         <div class="preview">
           <div class="header">
@@ -1260,6 +1260,27 @@ class LandroidCard extends LitElement {
         ${this.renderConfigBar()}
       </ha-card>
     `;
+*/
+
+    return html`
+      <ha-card>
+        <div class="preview">
+          <div class="header">
+          </div>
+        </div>
+        <div class="preview">
+          ${this.renderCameraOrImage(state)}
+          <div class="metadata">
+            ${this.renderName()} ${this.renderStatus()}
+          </div>
+
+          <div class="stats">${this.renderStats(state)}</div>
+          ${this.renderToolbar(state)}
+        </div>
+        ${this.renderConfigBar()}
+      </ha-card>
+    `;
+
   }
 }
 
